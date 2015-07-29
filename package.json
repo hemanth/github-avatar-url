@@ -1,6 +1,6 @@
 {
   "name": "github-avatar-url",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get github's avatar URL either by `username` or `email`.",
   "license": "MIT",
   "repository": "hemanth/github-avatar-url",
