@@ -1,0 +1,36 @@
+{
+  "name": "github-avatar-url",
+  "version": "0.0.0",
+  "description": "Get github's avatar URL either by `username` or `email`.",
+  "license": "MIT",
+  "repository": "hemanth/github-avatar-url",
+  "author": {
+    "name": "Hemanth.HM",
+    "email": "hemanth.hm@gmail.com",
+    "url": "h3manth.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "github",
+    "username",
+    "email",
+    "gravatar",
+    "avatar"
+  ],
+  "dependencies": {
+    "email-regex": "^1.0.0",
+    "gh-got": "^1.1.0",
+    "github-username": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
