@@ -38,7 +38,7 @@ Either `email` or `username`
 
 ### token
 
-Type: `object`
+Type: `string`
 
 GitHub [access token](https://github.com/settings/tokens/new).
 
