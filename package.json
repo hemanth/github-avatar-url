@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "email-regex": "^1.0.0",
-    "gh-got": "^1.1.0",
+    "gh-got": "^4.0.1",
     "github-username": "^2.0.0"
   },
   "devDependencies": {
