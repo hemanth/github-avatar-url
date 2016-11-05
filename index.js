@@ -3,7 +3,7 @@ var emailRegex = require('email-regex');
 var githubUsername= require('github-username');
 var ghGot = require('gh-got');
 
-module.exports = function (str, token, cb) {
+module.exports = function (str, token) {
 
 	if (typeof token === 'function') {
 		cb = token;
@@ -13,15 +13,16 @@ module.exports = function (str, token, cb) {
 	if (typeof str !== 'string') {
 		throw new TypeError('Expected a string');
 	}
-
-	var fetchAvatar =  function (err, data) {
-		if(err) return cb(err,null);
-		return cb(null,data.avatar_url)
-	};
-
-	emailRegex({exact: true}).test(str) ?
-	githubUsername(str,function(err,userName){
-		ghGot('users/' + userName, token, fetchAvatar)
-	}) : ghGot('users/' + str, token, fetchAvatar);
-	
+	// There is some scope to mv ghGot to a func.
+	return new Promise((reject, resolve) => {
+		emailRegex({exact: true}).test(str) ?
+		githubUsername(str, (err, userName) => {
+			if(err) return reject(err);
+			ghGot('users/' + userName, token)
+				.then(resp => resolve(resp.body.avatar_url));
+		})
+		: ghGot('users/' + str, token)
+		.then(resp => resolve(resp.body.avatar_url))
+		.catch(err => reject(err));
+	});
 };

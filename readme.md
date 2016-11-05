@@ -15,19 +15,19 @@ $ npm install --save github-avatar-url
 ```js
 var githubAvatarUrl = require('github-avatar-url');
 
-githubAvatarUrl('hemanth', {token:'foo'}, function(err,avatarURL){
-	if(!err) console.log(avatarURL);
-});
+githubAvatarUrl('hemanth', {token:'foo'})
+.then(console.log)
+.catch(console.error)
 
-githubAvatarUrl('hemanth.hm@gmail.com', {token:'foo'}, function(err,avatarURL){
-	if(!err) console.log(avatarURL);
-});
+githubAvatarUrl('hemanth.hm@gmail.com', {token:'foo'})
+.then(console.log)
+.catch(console.error)
 ```
 
 
 ## API
 
-### githubAvatarUrl(input, [token], <cb>)
+### githubAvatarUrl(input, [token])
 
 #### input
 
