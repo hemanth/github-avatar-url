@@ -31,6 +31,6 @@
     "github-username": "^4.0.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "3.1.1"
   }
 }
