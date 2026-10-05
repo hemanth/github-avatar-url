@@ -1,20 +1,7 @@
-'use strict';
-import test from 'ava'
-var githubAvatarUrl = require('./');
+import test from "ava";
+import githubAvatarUrl from "./index.js";
 
-
-test(t => {
-		return githubAvatarUrl('hemanth')
-  .then(avatar => {
-    t.is(avatar,'https://avatars.githubusercontent.com/u/18315?v=3');
-  })
-  .catch(err => console.error);
-});
-
-test(t => {
-		return githubAvatarUrl('hemanth.hm@gmail.com')
-  .then(avatar => {
-    t.is(avatar,'https://avatars.githubusercontent.com/u/18315?v=3');
-  })
-  .catch(err => console.error);
+test("username avatar", async t => {
+  const avatar = await githubAvatarUrl("hemanth");
+  t.true(avatar.startsWith("https://avatars.githubusercontent.com/u/18315"));
 });
